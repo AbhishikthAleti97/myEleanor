@@ -33,7 +33,7 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return redirect('accounts/profile')
+            return redirect('/accounts/profile')
 
     else:
         form = UserChangeForm(instance=request.user)
