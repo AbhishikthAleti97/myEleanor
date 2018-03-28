@@ -49,6 +49,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'myEleanor.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'myEleanor.urls'
@@ -121,3 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/accounts/'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025

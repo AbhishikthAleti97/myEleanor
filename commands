@@ -1,0 +1,9 @@
+In case you forget,
+
+
+python3 manage.py runserver #to run the server
+
+python -m smtpd -n -c DebuggingServer localhost:1025  #To set up the mail server, this is a debugging mail server 
+
+
+

@@ -14,9 +14,26 @@
               <div class="navbar-header">
                 <a class="navbar-brand" href="/">myEleanor</a>
               </div>
+              {% if user.is_authenticated %}
+              <ul class="nav navbar-nav">
+                <li><a href="/accounts">Home</a></li>
+                <li><a href="/accounts/profile">Profile</a></li>
+                <li><a href="/accounts/profile/edit">Edit Profile</a></li>
+                <li><a href="/accounts/change-password">Change password</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/accounts/logout">Logout</a></li>
+              </ul>
+
+              {% else %}
+              <ul class="nav navbar-nav">
+                <li><a href="/accounts/login">Login</a></li>
+                <li><a href="/accounts/reset-password">Forgot Password</a></li>
+              </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="/accounts/register">Register</a></li>
               </ul>
+              {% endif %}
             </div>
           </nav>
         {% block body %}
