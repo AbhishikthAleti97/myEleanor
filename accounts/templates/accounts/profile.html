@@ -7,13 +7,24 @@
 {% block body %}
 <div class="container">
 <p>
+  <H1> Profile </H1> <br/>
+
 Name: {{ user }}<br/>
-
+<br/>
 First Name: {{ user.first_name }} <br/>
-
+<br/>
 Last Name: {{ user.last_name }} <br/>
-
-Email: {{ user.email }}
+<br/>
+Email: {{ user.email }} <br/>
+<br/>
+Description: {{ user.userprofile.description }} <br/>
+<br/>
+City: {{ user.userprofile.city }} <br/>
+<br/>
+Phone: {{ user.userprofile.phone }} <br/><br/>
+Website: {{ user.userprofile.website }}<br/>
+<image src="{{ user.userprofile.image.url }}" width="240"/>
 </p>
+
 </div>
 {% endblock %}

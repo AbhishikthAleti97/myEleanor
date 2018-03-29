@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -121,6 +121,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'myEleanor/media')
+
 LOGIN_REDIRECT_URL = '/accounts/'
+
+LOGIN_URL = '/accounts/login'
+
 EMAIL_HOST = 'localhost'
+
 EMAIL_PORT = 1025
+
+LOGIN_EXEMPT_URLS = (
+    r'^accounts/logout/$',
+    r'^accounts/register/$',
+    r'^accounts/reset-password/$',
+    r'^accounts/reset-password/done/$',
+    r'^accounts/reset-password/complete/$',
+    r'^accounts/reset-password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+
+)
