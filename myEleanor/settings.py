@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home',
     'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -125,7 +126,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'myEleanor/media')
 
-LOGIN_REDIRECT_URL = '/accounts/'
+LOGIN_REDIRECT_URL = '/home/'
 
 LOGIN_URL = '/accounts/login'
 

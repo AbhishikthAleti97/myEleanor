@@ -13,10 +13,10 @@
             <div class="container-fluid">
               {% if user.is_authenticated %}
               <div class="navbar-header">
-                <a class="navbar-brand" href="{% url 'accounts:home' %}">myEleanor</a>
+                <a class="navbar-brand" href="{% url 'home:home' %}">myEleanor</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a href="{% url 'accounts:home' %}">Home</a></li>
+                <li><a href="{% url 'home:home' %}">Home</a></li>
                 <li><a href="{% url 'accounts:view_profile' %}">Profile</a></li>
                 <li><a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
                 <li><a href="{% url 'accounts:change_password' %}">Change password</a></li>
