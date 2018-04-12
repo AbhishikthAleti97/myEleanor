@@ -2,14 +2,75 @@
 
 {% block head %}
 <title>Profile</title>
+<style media="screen">
+
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 30px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
+
+{% endblock %}
+
+{% block jumbotron %}
+<h2>Edit Profile</h2>
 {% endblock %}
 
 {% block body %}
-<div class="container">
-  <form method="post">
+<div class="wrapper">
+  <form method="post" class="form-signin">
     {% csrf_token %}<!--can comment csrf to show how it works-->
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
+    Email:
+    <br/>
+    <input type="email" name="{{form.email.name}}" class="form-control" value="{{user.email}}" placeholder="Enter new email id">
+    <br/>
+    First Name:
+    <br/>
+    <input type="text" name="{{form.first_name.name}}" class="form-control" value="{{user.first_name}}" placeholder="Enter your first Name">
+    <br/>
+    Last Name:
+    <input type="text" name="{{form.last_name.name}}" class="form-control" value="{{user.last_name}}" placeholder="Enter your last Name">
+
+    <br/>
+    <button type="submit" class="btn btn-lng btn-primary btn-block">Submit</button>
+
   </form>
 </div>
 {% endblock %}

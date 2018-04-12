@@ -1,12 +1,73 @@
 {% extends 'base.html' %}
+{% block head %}
+<title>Register</title>
+<style media="screen">
+
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 30px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
+{% endblock %}
+
+{% block jumbotron %}
+  <H2> Register </H2>
+{% endblock %}
 
 {% block body %}
-<div class="container">
-  <h1>Register</h1>
-    <form method="post">
+<div class="wrapper">
+    <form method="post" class="form-signin">
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Submit</button>
+      <input type="text" name="{{form.username.name}}" class="form-control" placeholder="Username">
+
+      <input type="text" name="{{form.first_name.name}}" class="form-control" placeholder="First Name">
+
+      <input type="text" name="{{form.last_name.name}}" class="form-control" placeholder="Last Name">
+
+      <input type="email" name="{{form.email.name}}" class="form-control" placeholder="Email">
+
+      <input type="password" name="{{form.password1.name}}" class="form-control" placeholder="Enter Password">
+
+      <input type="password" name="{{form.password2.name}}" class="form-control" placeholder="Confirm Password">
+
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
     </form>
 </div>
 {% endblock %}

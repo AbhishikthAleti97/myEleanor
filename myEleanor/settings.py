@@ -124,7 +124,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'myEleanor/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'myEleanor/media/')
+
 
 LOGIN_REDIRECT_URL = '/home/'
 

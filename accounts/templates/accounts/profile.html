@@ -2,29 +2,169 @@
 
 {% block head %}
 <title>Profile</title>
+<style>
+.caption div {
+  box-shadow: 0 0 5px #C8C8C8;
+  transition: all 0.3s ease 0s;
+}
+.img-circle {
+  border-radius: 50%;
+}
+.img-circle {
+  border-radius: 0;
+}
+
+.ratio {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  width: 100%;
+}
+.img-circle {
+  border-radius: 50%;
+}
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+
+
+
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 30px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.img-responsive{
+  background-image: url("{{ user.userprofile.image.url }}");
+}
+
+</style>
+{% endblock %}
+{% block jumbotron %}
+<H2> Profile </H2>
 {% endblock %}
 
 {% block body %}
-<div class="container">
-<p>
-  <H1> Profile </H1> <br/>
+<div class="form-signin">
+  <p>
+    <center>
+    <div class="container" style="padding-left:70px;padding-bottom:20px">
+        <div class="row">
+            <div class="col-sm-2">
+                <div  class="ratio img-responsive img-circle"></div>
+            </div>
 
-Name: {{ user }}<br/>
-<br/>
-First Name: {{ user.first_name }} <br/>
-<br/>
-Last Name: {{ user.last_name }} <br/>
-<br/>
-Email: {{ user.email }} <br/>
-<br/>
-Description: {{ user.userprofile.description }} <br/>
-<br/>
-City: {{ user.userprofile.city }} <br/>
-<br/>
-Phone: {{ user.userprofile.phone }} <br/><br/>
-Website: {{ user.userprofile.website }}<br/>
-<image src="{{ user.userprofile.image.url }}" width="240"/>
-</p>
+        </div>
+    </div>
+  </center>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">First Name:</h3>
+      </div>
+      <div class="panel-body">
+        {{user.first_name}}
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Last Name:</h3>
+      </div>
+      <div class="panel-body">
+        {{user.last_name}}
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Email:</h3>
+      </div>
+      <div class="panel-body">
+        {{user.email}}
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Description:</h3>
+      </div>
+      <div class="panel-body">
+        {{user.userprofile.description}}
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">City:</h3>
+      </div>
+      <div class="panel-body">
+        {{user.userprofile.city}}
+      </div>
+    </div>
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Phone:</h3>
+      </div>
+      <div class="panel-body">
+        {{user.userprofile.phone}}
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Website:</h3>
+      </div>
+      <div class="panel-body">
+        {{user.userprofile.website}}
+      </div>
+    </div>
+
+  </p>
 
 </div>
 {% endblock %}

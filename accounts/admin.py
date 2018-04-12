@@ -6,12 +6,6 @@ from accounts.models import UserProfile
 admin.site.register(UserProfile)
 
 
-"""
-class UserProfileManager(models.Manager):
-    def get_queryset(self):
-        return super(UserProfileManager, self).get_queryset().filter(city='Manipal')
-"""
-
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'user_info', 'city', 'phone', 'website')
 

@@ -1,18 +1,74 @@
 {% extends 'base.html' %}
+{% block head %}
+<title>Home</title>
+<style media="screen">
+.wrapper {
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 95%;
+  padding: 15px 25px 25px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 20px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
+{% endblock %}
+{% block jumbotron %}
+<h2><span class="glyphicon glyphicon-home"></span> Home</h2>
+{% endblock %}
 {% block body %}
-<div class="container">
-<p>
-  <h1>Home</h1>
-  <form method="post">
+<div class="wrapper">
+  <form method="post" class="form-signin">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">post</button>
+    <textarea placeholder="How do you feel today?" class="form-control" name="{{form.post.name}}" rows="10"></textarea>
+    <br/>
+    <center><button type="submit" class="btn btn-success btn-lg">post</button></center>
   </form>
-  <h2>{{ text }}</h2>
+
+</div>
+
+<div class="wrapper">
+
   {% for post in posts %}
+  {% if user.get_full_name == post.user.get_full_name %}
+  <div class = "form-signin">
+    <h2><strong>{{ post.created }}</strong></h2>
     <h3>{{ post.post }}</h3>
-    <p>Posted by {{ post.user.get_full_name }} on {{ post.date }}</p>
+    <p style="font-size:50%">Posted by {{ post.user.get_full_name }} </p>
+  </div>
+  {% endif %}
   {% endfor %}
-</p>
+
 </div>
 {% endblock %}
