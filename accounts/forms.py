@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from accounts.models import UserProfile
 
 
 class RegistrationForm(UserCreationForm):
@@ -16,6 +17,18 @@ class RegistrationForm(UserCreationForm):
             'password1',
             'password2'
             )
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if email and User.objects.filter(email=email).first():
+            raise forms.ValidationError('Email already taken, sorry!')
+        return email
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if username and User.objects.filter(username=username).first():
+            raise forms.ValidationError('Username already taken, sorry!')
+        return username
 
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
@@ -38,5 +51,20 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'password',
 
+        )
+        exclude = ()
+
+
+
+class EditProfileForm2(UserChangeForm):
+
+    class Meta:
+        model = UserProfile
+        fields = (
+            'description',
+            'city',
+            'website',
+            'phone',
+            'image'
         )
         exclude = ()

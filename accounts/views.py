@@ -2,13 +2,13 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.forms import UserCreationForm
 from accounts.forms import (
     RegistrationForm,
-    EditProfileForm
+    EditProfileForm,
+    EditProfileForm2
 )
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-
 # views here.
 
 
@@ -18,6 +18,9 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('/home')
+        else:
+            args = {'form':form}
+            return render(request, 'accounts/reg_form.html', args)
     else:
         form = RegistrationForm()
 
@@ -27,6 +30,7 @@ def register(request):
 
 def view_profile(request):
     args = {'user': request.user}
+
     return render(request, 'accounts/profile.html', args)
 
 
@@ -39,8 +43,9 @@ def edit_profile(request):
             return redirect('/accounts/profile')
 
     else:
+        args = {}
         form = EditProfileForm(instance=request.user)
-        args = {'form':form}
+        args['form'] = form
         return render(request, 'accounts/edit_profile.html', args)
 
 

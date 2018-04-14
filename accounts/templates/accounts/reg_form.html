@@ -63,11 +63,13 @@
 
       <input type="email" name="{{form.email.name}}" class="form-control" placeholder="Email">
 
-      <input type="password" name="{{form.password1.name}}" class="form-control" placeholder="Enter Password">
+      <input type="password" style="top:-1px" name="{{form.password1.name}}" class="form-control" placeholder="Enter Password">
 
-      <input type="password" name="{{form.password2.name}}" class="form-control" placeholder="Confirm Password">
+      <input type="password" style="top:-22px" name="{{form.password2.name}}" class="form-control" placeholder="Confirm Password">
 
       <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+      <h6>{{form.email.errors}}</h6>
+      <h6>{{form.username.errors}}</h6>
     </form>
 </div>
 {% endblock %}

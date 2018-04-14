@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block head %}
 <title>Profile</title>
 <style>
@@ -79,7 +79,11 @@
 }
 
 .img-responsive{
+  {% if user.userprofile.image.url is not none %}
   background-image: url("{{ user.userprofile.image.url }}");
+  {% else %}
+  background-image: url("{% static "images/nothing.png" %}");
+  {% endif %}
 }
 
 </style>
