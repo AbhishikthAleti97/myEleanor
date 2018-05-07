@@ -24,6 +24,11 @@ urlpatterns = [
     url(r'^$', views.login_redirect, name='login_redirect'),
     url(r'^admin/', admin.site.urls),
 	url(r'^home/',include('home.urls', namespace='home')),
-	url(r'^accounts/',include('accounts.urls', namespace='accounts'))
-
+	url(r'^accounts/',include('accounts.urls', namespace='accounts')),
+	url(
+        r'^chatterbot/',
+        include('chatterbot.ext.django_chatterbot.urls',
+        namespace='chatterbot')
+    ),
+	
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

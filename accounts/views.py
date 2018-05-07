@@ -42,11 +42,14 @@ def edit_profile(request):
             form.save()
             return redirect('/accounts/profile')
 
+
     else:
         args = {}
         form = EditProfileForm(instance=request.user)
         args['form'] = form
         return render(request, 'accounts/edit_profile.html', args)
+
+
 
 
 def change_password(request):

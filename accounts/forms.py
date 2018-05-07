@@ -50,7 +50,6 @@ class EditProfileForm(UserChangeForm):
             'first_name',
             'last_name',
             'password',
-
         )
         exclude = ()
 
@@ -65,6 +64,7 @@ class EditProfileForm2(UserChangeForm):
             'city',
             'website',
             'phone',
-            'image'
+            'image',
+            'password',
         )
         exclude = ()

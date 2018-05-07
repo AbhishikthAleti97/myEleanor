@@ -16,6 +16,29 @@
     border-radius: 0 !important;
     -moz-border-radius: 0 !important;
   }
+
+  .navbar-inverse{
+    background-color: #616161;
+  }
+
+  .navbar-inverse .navbar-brand,
+  .navbar-inverse .navbar-text {
+    color: rgba(255,255,255,.8);
+  }
+
+  .navbar-inverse .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+  }
+
+  .hmm{
+    background-color: #424242;
+  }
+
+  .navbar-inverse .nav-item.active .nav-link,
+  .navbar-inverse .nav-item:hover .nav-link {
+    color: #ffffff;
+  }
+
   .footer {
     position: fixed;
     left: 0;
@@ -49,35 +72,35 @@
         {% if user.is_authenticated %}
         <ul class="nav navbar-nav">
           {% url 'home:home' as home_url %}
-          <li {% if request.get_full_path == home_url %}class="active"{% endif %}><a href="{% url 'home:home' %}">Home</a></li>
+          <li {% if request.get_full_path == home_url %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'home:home' %}">Home</a></li>
           {% url 'accounts:view_profile' as profile %}
-          <li {% if request.get_full_path == profile %}class="active"{% endif %}><a href="{% url 'accounts:view_profile' %}">Profile</a></li>
+          <li {% if request.get_full_path == profile %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'accounts:view_profile' %}">{{user.first_name}}</a></li>
           {% url 'accounts:edit_profile' as edit_profile %}
-          <li {% if request.get_full_path == edit_profile %}class="active"{% endif %}><a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
+          <li {% if request.get_full_path == edit_profile %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
           {% url 'accounts:change_password' as change_password %}
-          <li {% if request.get_full_path == change_password %}class="active"{% endif %}><a href="{% url 'accounts:change_password' %}">Change Password</a></li>
+          <li {% if request.get_full_path == change_password %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'accounts:change_password' %}">Change Password</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {% url 'accounts:logout' as logout %}
-          <li {% if request.get_full_path == logout %}class="active"{% endif %}><a href="{% url 'accounts:logout' %}">Log out</a></li>
+          <li {% if request.get_full_path == logout %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'accounts:logout' %}">Log out</a></li>
         </ul>
         {% else %}
         <ul class="nav navbar-nav">
           {% url 'accounts:reset_password' as reset_password %}
-          <li {% if request.get_full_path == reset_password %}class="active"{% endif %}><a href="{% url 'accounts:reset_password' %}">Reset Password</a></li>
+          <li {% if request.get_full_path == reset_password %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'accounts:reset_password' %}">Reset Password</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {% url 'accounts:login' as login %}
-          <li {% if request.get_full_path == login %}class="active"{% endif %}><a href="{% url 'accounts:login' %}">Login</a></li>
+          <li {% if request.get_full_path == login %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'accounts:login' %}">Login</a></li>
           {% url 'accounts:register' as register %}
-          <li {% if request.get_full_path == register %}class="active"{% endif %}><a href="{% url 'accounts:register' %}">Register</a></li>
+          <li {% if request.get_full_path == register %}class="hmm"{% endif %}><a style="color:#eeeeee;" href="{% url 'accounts:register' %}">Register</a></li>
         </ul>
         {% endif %}
       </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
   </nav>
   <div>
-    <div class="jumbotron" style="background-color:#14213d;color:#e5e5e5;padding-top:10px;padding-bottom:15px">
+    <div class="jumbotron" style="background-color:#546e7a;color:#e5e5e5;padding-top:1px;padding-bottom:3px">
       <div class="container-fluid">
         {% block jumbotron %}
         <h2>Random text</h2>

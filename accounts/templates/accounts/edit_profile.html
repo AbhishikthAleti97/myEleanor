@@ -54,12 +54,13 @@
 {% endblock %}
 
 {% block body %}
+
 <div class="wrapper">
   <form method="post" class="form-signin">
     {% csrf_token %}<!--can comment csrf to show how it works-->
     Email:
     <br/>
-    <input type="email" name="{{form.email.name}}" class="form-control" value="{{user.email}}" placeholder="Enter new email id" readonly>
+    <input type="email" name="{{form.email.name}}" class="form-control" value="{{user.email}}" placeholder="Enter new email id">
     <br/>
     First Name:
     <br/>
@@ -69,34 +70,10 @@
     <input type="text" name="{{form.last_name.name}}" class="form-control" value="{{user.last_name}}" placeholder="Enter your last Name">
 
     <br/>
+
     <button type="submit" class="btn btn-lng btn-primary btn-block">Submit</button>
 
   </form>
 </div>
-<!--<div class="wrapper">
-  <form class="form-signin" method="post">
-    {% csrf_token %}
-    Description:
-    <br/>
-    <input type="text" name="{{form2.description.name}}" class="form-control" value="{{user.userprofile.description}}" placeholder="Description">
-    <br/>
-    City:
-    <br/>
-    <input type="text" name="{{form2.city.name}}" class="form-control" value="{{user.userprofile.city}}" placeholder="City">
-    <br/>
-    Website:
-    <br/>
-    <input type="text" name="{{form2.website.name}}" value="{{user.userprofile.website}}" class="form-control" placeholder="Website">
-    <br/>
-    Phone:
-    <br/>
-    <input type="text" name="{{form2.phone.name}}" value="{{user.userprofile.phone}}" class="form-control" placeholder="Website">
-    <br/>
-    Image:<br/>
-    <br/>
-    {{form2.image}}
-    <br/>
-    <button type="submit" class="btn btn-lng btn-primary btn-block">Go</button>
-  </form>
-</div>-->
+
 {% endblock %}
